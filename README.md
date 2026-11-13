@@ -36,7 +36,9 @@ The build is set up for a project page with no server:
 - `vite.config.ts` uses `base: './'`, so asset paths are relative.
 - The router is a `HashRouter`, so every page works on a plain static host. Addresses look like `https://<user>.github.io/<repo>/#/diagnose`.
 
-The workflow in `.github/workflows/pages.yml` builds and publishes the app on every push to `main`. It type-checks the project, runs the workflow check, builds `dist/`, and deploys it. The first run also turns on Pages with GitHub Actions as the source, if the repository allows it.
+The workflow in `.github/workflows/pages.yml` builds and publishes the app on every push to `main`. It type-checks the project, runs the workflow check, builds `dist/`, and deploys it.
+
+Before the first run, turn on Pages once: in the repository's Settings, open Pages and set Source to "GitHub Actions". The workflow's token cannot create the Pages site on its own, so this step is manual.
 
 Live address: https://kyro-scripts.github.io/Softreset/
 
