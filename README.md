@@ -36,13 +36,13 @@ The build is set up for a project page with no server:
 - `vite.config.ts` uses `base: './'`, so asset paths are relative.
 - The router is a `HashRouter`, so every page works on a plain static host. Addresses look like `https://<user>.github.io/<repo>/#/diagnose`.
 
-Steps:
+The workflow in `.github/workflows/pages.yml` builds and publishes the app on every push to `main`. It type-checks the project, runs the workflow check, builds `dist/`, and deploys it. The first run also turns on Pages with GitHub Actions as the source, if the repository allows it.
 
-1. Run `npm run build`.
-2. Publish the contents of `dist/` to GitHub Pages. You can use a `gh-pages` branch, or a GitHub Actions workflow that uploads `dist/` as the Pages artifact.
-3. Open the published address and check the dashboard loads.
+Live address: https://kyro-scripts.github.io/Softreset/
 
-This repository does not include a deployment workflow file. Add one if you want automatic publishing.
+The repository is public, so the site is public too. The app stores nothing in the repository, and every technician's data stays in their own browser.
+
+To build the same output locally, run `npm run build`, then serve `dist/` with `npm run preview`.
 
 ## What is built
 
